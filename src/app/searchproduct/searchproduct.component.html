@@ -1,0 +1,21 @@
+
+<div class="container">
+
+    <b>Name </b><input type="text" #searchdata class="form-control" required><br>
+    
+    <button  class="btn btn-primary" (click)="filterData(searchdata.value)">Search</button><br>
+    
+    <table class="table table-dark">
+            <tr *ngFor="let prod of searchedItems">
+          
+                    <td>{{prod.id}}</td>
+                    <td>{{prod.name}}</td>
+                    <td>{{prod.price}}</td>
+                    <td>{{prod.brand}}</td>
+            </tr>
+       
+    </table>
+    
+    </div>
+    
+    

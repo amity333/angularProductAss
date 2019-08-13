@@ -1,0 +1,43 @@
+
+<div class="container">
+    <form #prodForm="ngForm" (ngSubmit)="add()" class="was-validated">
+    
+        <div class="form-group">
+            ProductId:<input type="number" name="pid" id="pid" [(ngModel)]="prod.id" #prodid="ngModel" class="form-control" required pattern="[0-9]{3,}">
+            
+            <span class="invalid-feedback" *ngIf=" prodid.errors?.required && proid.touched " > Product id required</span>
+            <span class="alert alert-danger" *ngIf=" prodid.errors?.pattern && prodid.dirty" > It should be 3 digits</span>
+            
+        </div> 
+        
+        <div class="form-group">
+                Name:<input type="text" name="pname" id="pname" [(ngModel)]="prod.name" #prodname="ngModel" class="form-control" required pattern="[A-Z]{1}[a-z]{2,}">
+                
+                <span class="invalid-feedback" *ngIf=" prodname.errors?.required && prodname.touched " > Product name required</span>
+                <span class="alert alert-danger" *ngIf=" prodname.errors?.pattern && prodname.touched" > 1st letter should be Capital</span>
+                
+        </div>
+        
+        <div class="form-group">
+                price:<input type="number" name="price" id="price" [(ngModel)]="prod.price" #prodprice="ngModel" class="form-control" required >
+                
+                <span class="invalid-feedback" *ngIf=" prodprice.errors?.required && prodprice.touched " > Price required</span>
+                
+                
+        </div>
+        
+        <div class="form-group">
+                Brand:<input type="text" name="pbrand" id="pbrand" [(ngModel)]="prod.brand" #prodbrand="ngModel" class="form-control" required >
+                
+                <span class="invalid-feedback" *ngIf=" prodbrand.errors?.required && prodbrand.touched " > Brand required</span>
+
+                
+        </div> 
+    
+        
+        <button class="btn btn-primary" type="submit" [disabled]="prodForm.invalid" > Save</button>
+    {{custForm.value | json}}
+    </form>
+    </div>
+    
+
